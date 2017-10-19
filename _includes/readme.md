@@ -37,17 +37,57 @@ _STRM 1179 is used on all examples_
 * [The term for UMNTC, career UGRD, and STRM 1179](http://terms.umn.edu/umntc/ugrd/1179)
 ## Data Returned
 
-You will get a collection of `active/today` resources back. The data will be like this example:
+You will get a collection of `term` resources back. The data will be like this example:
 
-```yaml
-active/today:
-  type: ’terms’
-  institution: ’umntc’
-  career: ‘med’
-  strm: ’1179’
-  descr: ‘Fall 2017’
-  begin-date: ‘2017-07-31’
-  end-date: ’2017-12-29’
+```json
+{
+  "id": "6",
+  "type": "terms",
+  "links": {
+    "self": "http://terms.umn.edu/terms/6"
+  },
+  "attributes": {
+  "institution": "UMNCR",
+  "strm": "1179",
+  "begin-date": "2017-08-22",
+  "end-date": "2017-12-14",
+  "name": "Fall 2017",
+  "career": "UGRD"
+  }
+},
+```
+
+## Responses for non-existent terms
+
+- If you request a collection of terms that contains no terms, such as http://terms.umn.edu/active/1700-01-01, you will get an empty collection back
+
+```json
+{
+  "data": []
+}
+```
+
+- If you request a collection of non-existent terms, such as http://terms.umn.edu/0000, you will get an empty collection back
+
+```json
+{
+  "data": []
+}
+```
+
+- If you request a single, non-existent term, such as http://terms.umn.edu/terms/0, you will get an error object back
+
+```json
+{
+  "errors": [
+    {
+      "title": "Record not found",
+      "detail": "The record identified by 0 could not be found.",
+      "code": "404",
+      "status": "404"
+    }
+  ]
+}
 ```
 
 ## Development
