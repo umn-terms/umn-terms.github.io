@@ -5,8 +5,22 @@ A web service that tells you what term is active today, or any other day that yo
 
 ## Terminology
 
-- _Active_: term based on the range of actual start of term (term_begin_dt) and actual end of term (term_end_dt)
-- _Latest_: term based on the most recently begun term that ends the day before the actual start of term (term_begin_dt) for the following term
+- _Active_: A term that has begun but has not ended.
+- _Latest_: The term that began most recently. This term may be over.
+
+If you look for Active terms, you may sometimes get no terms back. If you look for latest terms, you should always get a term back.
+
+### Examples
+
+If today is 2017-08-18 and you check for Undergraduate UMNTC terms
+
+- The _Active_ term is Summer, 2017. It began on 2017-05-22 and ends on 2017-08-18, and today's date falls within that span.
+- The _Latest_ term is also Summer, 2017. It is the UMNTC Undergraduate term with the most recent start date.
+
+If you check one day later, on 2017-08-19 then you will see:
+
+- There is *no active term*. Summer, 2017 has completed, and the next term has not yet begun.
+- The _Latest_ term is still Summer, 2017. It is the UMNTC Undergraduate term with the most recent start date.
 
 ## Usage
 
