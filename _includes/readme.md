@@ -44,7 +44,9 @@ You will get a collection of `term` resources back. The data will be like this e
   "id": "6",
   "type": "terms",
   "links": {
-    "self": "http://terms.umn.edu/terms/6"
+    "self": "http://terms.umn.edu/terms/6",
+    "prev": "http://terms.umn.edu/terms/5",
+    "next": "http://terms.umn.edu/terms/7"
   },
   "attributes": {
   "institution": "UMNCR",
@@ -54,8 +56,10 @@ You will get a collection of `term` resources back. The data will be like this e
   "name": "Fall 2017",
   "career": "UGRD"
   }
-},
+}
 ```
+
+The `prev` link will take you to the previous term for the same Institution & Career. The `next` link will take you to the subsequent term for the same Institution and Career.
 
 ## Responses for non-existent terms
 
