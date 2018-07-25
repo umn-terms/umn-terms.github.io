@@ -108,6 +108,10 @@ The `prev` link will take you to the previous term for the same Institution & Ca
 }
 ```
 
+## Problems?
+
+You can email us at asrweb [at] umn edu
+
 ## Development
 - `gem install overcommit`
 - `script/setup` 
