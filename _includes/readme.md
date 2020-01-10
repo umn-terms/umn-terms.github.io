@@ -25,30 +25,30 @@ If you check one day later, on 2017-08-19 then you will see:
 ## Usage
 
 ### Get Terms Active for Today:
-* [All active terms for all institutions and careers](http://terms.umn.edu/active/today)
-* [All active terms for UMNTC and all careers](http://terms.umn.edu/umntc/active/today)
-* [All active terms for UMNTC and UGRD](http://terms.umn.edu/umntc/ugrd/active/today)
+* [All active terms for all institutions and careers](https://terms.umn.edu/active/today)
+* [All active terms for UMNTC and all careers](https://terms.umn.edu/umntc/active/today)
+* [All active terms for UMNTC and UGRD](https://terms.umn.edu/umntc/ugrd/active/today)
 
 ### Get Terms Latest for Today:
-* [All latest terms for all institutions and careers](http://terms.umn.edu/latest/today)
-* [All latest terms for UMNTC and all careers](http://terms.umn.edu/umntc/latest/today)
-* [All latest terms for UMNTC and UGRD](http://terms.umn.edu/umntc/ugrd/latest/today)
+* [All latest terms for all institutions and careers](https://terms.umn.edu/latest/today)
+* [All latest terms for UMNTC and all careers](https://terms.umn.edu/umntc/latest/today)
+* [All latest terms for UMNTC and UGRD](https://terms.umn.edu/umntc/ugrd/latest/today)
 
 ### Get Terms by Date: 
 _The date 2017-09-15 is used for all examples_
-* [All active terms for all institutions and careers by date](http://terms.umn.edu/active/2017-09-15)
-* [All latest terms for all institutions and careers by date](http://terms.umn.edu/latest/2017-09-15)
-* [All active terms for UMNTC and all careers by date](http://terms.umn.edu/umntc/active/2017-09-15)
-* [All latest terms for UMNTC and all careers by date](http://terms.umn.edu/umntc/latest/2017-09-15)
-* [All active terms for UMNTC and UGRD by date](http://terms.umn.edu/umntc/ugrd/active/2017-09-15)
-* [All latest terms for UMNTC and UGRD by date](http://terms.umn.edu/umntc/ugrd/latest/2017-09-15)
+* [All active terms for all institutions and careers by date](https://terms.umn.edu/active/2017-09-15)
+* [All latest terms for all institutions and careers by date](https://terms.umn.edu/latest/2017-09-15)
+* [All active terms for UMNTC and all careers by date](https://terms.umn.edu/umntc/active/2017-09-15)
+* [All latest terms for UMNTC and all careers by date](https://terms.umn.edu/umntc/latest/2017-09-15)
+* [All active terms for UMNTC and UGRD by date](https://terms.umn.edu/umntc/ugrd/active/2017-09-15)
+* [All latest terms for UMNTC and UGRD by date](https://terms.umn.edu/umntc/ugrd/latest/2017-09-15)
 
 
 ### Get Terms by STRM
 _STRM 1179 is used on all examples_
-* [All terms for STRM 1179](http://terms.umn.edu/1179)
-* [All terms for UMNTC and STRM 1179](http://terms.umn.edu/umntc/1179)
-* [The term for UMNTC, career UGRD, and STRM 1179](http://terms.umn.edu/umntc/ugrd/1179)
+* [All terms for STRM 1179](https://terms.umn.edu/1179)
+* [All terms for UMNTC and STRM 1179](https://terms.umn.edu/umntc/1179)
+* [The term for UMNTC, career UGRD, and STRM 1179](https://terms.umn.edu/umntc/ugrd/1179)
 ## Data Returned
 
 You will get a collection of `term` resources back. The data will be like this example:
@@ -77,7 +77,7 @@ The `prev` link will take you to the previous term for the same Institution & Ca
 
 ## Responses for non-existent terms
 
-- If you request a collection of terms that contains no terms, such as http://terms.umn.edu/active/1700-01-01, you will get an empty collection back
+- If you request a collection of terms that contains no terms, such as https://terms.umn.edu/active/1700-01-01, you will get an empty collection back
 
 ```json
 {
@@ -85,7 +85,7 @@ The `prev` link will take you to the previous term for the same Institution & Ca
 }
 ```
 
-- If you request a collection of non-existent terms, such as http://terms.umn.edu/0000, you will get an empty collection back
+- If you request a collection of non-existent terms, such as https://terms.umn.edu/0000, you will get an empty collection back
 
 ```json
 {
@@ -93,7 +93,7 @@ The `prev` link will take you to the previous term for the same Institution & Ca
 }
 ```
 
-- If you request a single, non-existent term, such as http://terms.umn.edu/terms/0, you will get an error object back
+- If you request a single, non-existent term, such as https://terms.umn.edu/terms/0, you will get an error object back
 
 ```json
 {
@@ -109,8 +109,38 @@ The `prev` link will take you to the previous term for the same Institution & Ca
 ```
 
 ## Development
-- `gem install overcommit`
-- `script/setup` 
 
 Local development uses a SQLite database for speed and ease-of-setup. The deployed application uses an Oracle database. In some cases this can introduce bugs, as developers are working against a different database platform that what is used in production. If you'd like to work against an Oracle database, contact Ian Whitney (whit0694) for credentials.
 
+### Setup
+
+- `gem install overcommit`
+- `script/setup`
+
+### Testing
+
+Except for one request spec, these tests are all written as [Cucumber feature tests](https://cucumber.io/). You can find the scenarios in `./features`.
+
+- `script/test` or `script/test path/to/test.feature`
+
+The single request spec can't be run individually using `script/test`. To run it use: `bin/rspec spec/request/cors_spec.rb`. It will also run on `script/test`.
+
+To see a test coverage report:
+
+1. `COVERAGE=1 ./script/test`
+1. `open coverage/index.html` to view the report
+
+### Deploying
+
+- `script/deploy`
+- enter the environment to which you are deploying. I.e., staging or production
+
+This will deploy from the master branch and update the `terms.umn.edu` Jekyll site using the contents of the README.
+
+**Note:** You must be a member of the umn-terms organization to publish to the Jekyll site. To skip that step run `bundle exec cap staging deploy`.
+
+### URLs
+
+- Staging: https://terms-staging.umn.edu/active/today
+- Production: https://terms.umn.edu/active/today
+- Documentation site: https://umn-terms.github.io/
