@@ -7,8 +7,9 @@ A web service that tells you what term is active today, or any other day that yo
 
 - _Active_: A term that has begun but has not ended.
 - _Latest_: The term that began most recently. This term may be over.
+- _Soonest_: The active term, or if there is no active term, the next term. Another way of thinking about this is the term that ends the soonest. This term may not have started yet.
 
-If you look for Active terms, you may sometimes get no terms back. If you look for latest terms, you should always get a term back.
+If you look for Active terms, you may sometimes get no terms back. If you look for latest or soonest terms, you should always get a term back.
 
 ### Examples
 
@@ -16,11 +17,13 @@ If today is 2017-08-18 and you check for Undergraduate UMNTC terms
 
 - The _Active_ term is Summer, 2017. It began on 2017-05-22 and ends on 2017-08-18, and today's date falls within that span.
 - The _Latest_ term is also Summer, 2017. It is the UMNTC Undergraduate term with the most recent start date.
+- The _Soonest_ term is also Summer, 2017. Summer, 2017 is not complete (so it is the UMNTC Undergraduate term with the soonest end date).
 
 If you check one day later, on 2017-08-19 then you will see:
 
 - There is *no active term*. Summer, 2017 has completed, and the next term has not yet begun.
 - The _Latest_ term is still Summer, 2017. It is the UMNTC Undergraduate term with the most recent start date.
+- The _Soonest_ term is Fall, 2017. Summer, 2017 has completed and Fall, 2017 is the next term (so it is the UMNTC Undergraduate term with the soonest end date).
 
 ## Usage
 
@@ -34,14 +37,22 @@ If you check one day later, on 2017-08-19 then you will see:
 * [All latest terms for UMNTC and all careers](https://terms.umn.edu/umntc/latest/today)
 * [All latest terms for UMNTC and UGRD](https://terms.umn.edu/umntc/ugrd/latest/today)
 
+### Get Terms Soonest for Today:
+* [All soonest terms for all institutions and careers](https://terms.umn.edu/soonest/today)
+* [All soonest terms for UMNTC and all careers](https://terms.umn.edu/umntc/soonest/today)
+* [All soonest terms for UMNTC and UGRD](https://terms.umn.edu/umntc/ugrd/soonest/today)
+
 ### Get Terms by Date: 
 _The date 2017-09-15 is used for all examples_
 * [All active terms for all institutions and careers by date](https://terms.umn.edu/active/2017-09-15)
 * [All latest terms for all institutions and careers by date](https://terms.umn.edu/latest/2017-09-15)
+* [All soonest terms for all institutions and careers by date](https://terms.umn.edu/soonest/2017-09-15)
 * [All active terms for UMNTC and all careers by date](https://terms.umn.edu/umntc/active/2017-09-15)
 * [All latest terms for UMNTC and all careers by date](https://terms.umn.edu/umntc/latest/2017-09-15)
+* [All soonest terms for UMNTC and all careers by date](https://terms.umn.edu/umntc/soonest/2017-09-15)
 * [All active terms for UMNTC and UGRD by date](https://terms.umn.edu/umntc/ugrd/active/2017-09-15)
 * [All latest terms for UMNTC and UGRD by date](https://terms.umn.edu/umntc/ugrd/latest/2017-09-15)
+* [All soonest terms for UMNTC and UGRD by date](https://terms.umn.edu/umntc/ugrd/soonest/2017-09-15)
 
 
 ### Get Terms by STRM
@@ -132,8 +143,9 @@ To see a test coverage report:
 
 ### Deploying
 
-- `script/deploy`
-- enter the environment to which you are deploying. I.e., staging or production
+Be sure your Docker containers are running locally by running `script/server`.
+
+- `script/deploy [environment]`
 
 This will deploy from the master branch and update the `terms.umn.edu` Jekyll site using the contents of the README.
 
