@@ -121,7 +121,8 @@ The `prev` link will take you to the previous term for the same Institution & Ca
 
 ## Development
 
-Local development uses a SQLite database for speed and ease-of-setup. The deployed application uses an Oracle database. In some cases this can introduce bugs, as developers are working against a different database platform that what is used in production. If you'd like to work against an Oracle database, contact Ian Whitney (whit0694) for credentials.
+Local development uses the `asr_dev_user_<username>` space. A connection to the
+U's VPN is required to access the development and test databases.
 
 ### Setup
 
@@ -156,3 +157,8 @@ This will deploy from the master branch and update the `terms.umn.edu` Jekyll si
 - Staging: https://terms-staging.umn.edu/active/today
 - Production: https://terms.umn.edu/active/today
 - Documentation site: https://umn-terms.github.io/
+
+### Owners
+
+Who is responsible for the web application after initial development?
+ * [See this spreadsheet](https://docs.google.com/spreadsheets/d/1JOCG2MZnzsQ_ja8B-pEBqARSXyvoR0TwDb_APO3cdL4/edit?usp=sharing).
