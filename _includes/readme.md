@@ -3,6 +3,10 @@
 
 A web service that tells you what term is active today, or any other day that you might care about.
 
+## Join the user group
+
+[Join the Terms User Group](https://groups.google.com/a/umn.edu/g/terms-api-users)! That's our main way to communicate with you when things change.
+
 ## Terminology
 
 - _Active_: A term that has begun but has not ended.
@@ -42,7 +46,7 @@ If you check one day later, on 2017-08-19 then you will see:
 * [All soonest terms for UMNTC and all careers](https://terms.umn.edu/umntc/soonest/today)
 * [All soonest terms for UMNTC and UGRD](https://terms.umn.edu/umntc/ugrd/soonest/today)
 
-### Get Terms by Date: 
+### Get Terms by Date:
 _The date 2017-09-15 is used for all examples_
 * [All active terms for all institutions and careers by date](https://terms.umn.edu/active/2017-09-15)
 * [All latest terms for all institutions and careers by date](https://terms.umn.edu/latest/2017-09-15)
